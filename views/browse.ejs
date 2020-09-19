@@ -1,0 +1,28 @@
+<%- include("partials/header")%>
+<div class="jumbotron jumbotron-fluid my-5">
+  <div class="container">
+    <h1 class="display-4">
+      <i class="fas fa-child"></i> <i class="fas fa-car"></i>
+      <i class="fab fa-dribbble"></i> Explore toys
+    </h1>
+  </div>
+</div>
+<div id="toy">
+  <div class="container">
+    <div class="row">
+      <% toys.forEach(function(toy){%>
+      <div class="col-10 mx-auto my-3 col-md-6 col-lg-4">
+        <div class="card">
+          <img src="<%= toy.imageSrc %>" class="card-img-top" alt="..." />
+
+          <div class="card-body">
+            <h5 class="card-title"><%= toy.name%></h5>
+            <a href="/toyT/<%= toy._id %>" class="btn btn-primary">More Info</a>
+          </div>
+        </div>
+      </div>
+      <%}) %>
+    </div>
+  </div>
+</div>
+<%- include("partials/footer")%>

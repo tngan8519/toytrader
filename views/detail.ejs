@@ -1,0 +1,37 @@
+<%- include("partials/header")%>
+<div class="containerDetail">
+  <div class="card the">
+    <div class="row no-gutters">
+      <div class="col-md-7 col-lg-6 d-flex align-items-center">
+        <img src="../<%= toy.imageSrc %>" class="card-img" alt="..." />
+      </div>
+      <div class="col-md-4 offset-md-1 col-lg-4">
+        <div class="card-body">
+          <h5 class="card-title text-info"><%= toy.name%></h5>
+          <p class="card-text">$<%= toy.rentPrice%>/week rent</p>
+          <p class="card-text">$<%= toy.salePrice%>/buy</p>
+          <p class="card-text">or trade</p>
+          <p class="card-text">
+            <small class="text-muted"
+              >Created by <%= toy.author.username%> - <%=
+              toy.created.toUTCString()%></small
+            >
+          </p>
+          <%if(tkdalogin && toy.author.username === tkdalogin.username){ %>
+          <a href="/toyT/<%= toy._id%>/editT" class="btn btn-warning">Edit</a>
+          <form
+            action="/toyT/<%= toy._id%>?_method=DELETE"
+            method="post"
+            style="display: inline"
+          >
+            <button class="btn btn-danger">Delete</button>
+          </form>
+
+          <%}%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include("partials/footer")%>
